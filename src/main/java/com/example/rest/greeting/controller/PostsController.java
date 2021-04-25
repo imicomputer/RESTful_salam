@@ -24,7 +24,7 @@ public class PostsController {
         return postsJpaRepository.findAll();
     }
 
-    @GetMapping("/get/{post}")
+    @GetMapping("/get/{slug}")
     public Posts getPost(@PathVariable final String slug){
         return postsJpaRepository.findBySlug(slug);
     }
@@ -33,5 +33,12 @@ public class PostsController {
     public Posts create(@RequestBody final Posts posts){
         postsJpaRepository.save(posts);
         return postsJpaRepository.findBySlug(posts.getSlug());
+    }
+
+    @GetMapping("/delete/{id}")
+    public List<Posts> delete(@PathVariable final Long id){
+        postsJpaRepository.deleteById(id);
+        return postsJpaRepository.findAll();
+
     }
 }
