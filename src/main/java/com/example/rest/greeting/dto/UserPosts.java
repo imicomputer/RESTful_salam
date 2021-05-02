@@ -1,19 +1,16 @@
-package com.example.rest.greeting.entity;
+package com.example.rest.greeting.dto;
 
 import java.sql.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+// import javax.persistence.Entity;
+// import javax.persistence.Id;
 
-@Entity
+// @Entity
 public class UserPosts {
-    @Id
-    @SequenceGenerator(name = "POSTS_SEQ", allocationSize = 1)                      //Set Increment generator to +1
-    @GeneratedValue(generator = "POSTS_SEQ", strategy = GenerationType.SEQUENCE)    //Set column as auto_increment
-    private Long id;
+    // @Id
+    // @SequenceGenerator(name = "POSTS_SEQ", allocationSize = 1)                      //Set Increment generator to +1
+    // @GeneratedValue(generator = "POSTS_SEQ", strategy = GenerationType.SEQUENCE)    //Set column as auto_increment
+    // private Long id;
 
     private String slug;
     private String title;
@@ -21,20 +18,15 @@ public class UserPosts {
     private Date created;    
     private String username;
 
+	public UserPosts() {
+	}
+
 	public UserPosts(Long id, String slug, String title, String body, Date created, String username) {
 		this.slug = slug;
 		this.title = title;
 		this.body = body;
 		this.created = created;
 		this.username = username;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getSlug() {
@@ -79,9 +71,13 @@ public class UserPosts {
 
 	@Override
 	public String toString() {
-		return "UserPosts [id=" + id + ", slug=" + slug + ", title=" + title + ", body=" + body + ", created=" + created
-				+ ", username=" + username + "]";
+		return "{" +
+			" slug='" + getSlug() + "'" +
+			", title='" + getTitle() + "'" +
+			", body='" + getBody() + "'" +
+			", created='" + getCreated() + "'" +
+			", username='" + getUsername() + "'" +
+			"}";
 	}
-
-    
+   
 }

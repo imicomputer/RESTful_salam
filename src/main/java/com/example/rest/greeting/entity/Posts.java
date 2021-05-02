@@ -18,7 +18,7 @@ import org.hibernate.annotations.CreationTimestamp;
 //import org.hibernate.annotations.FetchMode;
 
 @Entity
-@Table(name = "posts")
+@Table(name = "POSTS")
 public class Posts {
     @Id
     @SequenceGenerator(name = "POSTS_SEQ", allocationSize = 1)                      //Set Increment generator to +1

@@ -3,10 +3,7 @@ package com.example.rest.greeting.controller;
 import java.util.List;
 
 import com.example.rest.greeting.entity.Posts;
-import com.example.rest.greeting.entity.UserPosts;
-import com.example.rest.greeting.entity.Users;
 import com.example.rest.greeting.service.PostsService;
-import com.example.rest.greeting.service.UsersService;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,11 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class PostsController {
 
 	private final PostsService postService;
-	private final UsersService usersService;
 
 	//Constructor
-	public PostsController(PostsService postsService, UsersService userPostsService) {
-		this.usersService = userPostsService;
+	public PostsController(PostsService postsService) {
 		this.postService = postsService;
 	}
     
@@ -49,16 +44,6 @@ public class PostsController {
     public List<Posts> getByBody(@PathVariable final String body) {
     	return postService.getPostsWithBody(body);
     }
-
-    @GetMapping("/get_users")
-    public List<Users> getUsers() {
-    	return usersService.getAll();
-    }
-
-    // @GetMapping("/get_user_posts_join")
-    // public List<UserPosts> getUserPostsInnerJoin() {
-    // 	return usersService.getUserPostsInnerJoin();
-    // }
 
     @PostMapping("/create")
     public Posts create(@RequestBody final Posts posts){

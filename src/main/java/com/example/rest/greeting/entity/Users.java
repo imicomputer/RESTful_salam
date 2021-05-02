@@ -107,7 +107,7 @@ public class Users {
 			", email='" + getEmail() + "'" +
 			", username='" + getUsername() + "'" +
 			", password='" + getPassword() + "'" +
-			", register_date='" + getRegister_date() + "'" +
+			", register_date='" + getRegdate() + "'" +
 			"}";
 	}
 
