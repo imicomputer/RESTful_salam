@@ -4,13 +4,18 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+//import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+//import javax.persistence.JoinColumn;
+//import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
+//import org.hibernate.annotations.Fetch;
+//import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name = "posts")
@@ -25,7 +30,15 @@ public class Posts {
     private String body;
 
     @CreationTimestamp                                                              //Put the current date as default value
-    private Date created_at;
+    @Column(name = "created_at")
+    private Date created;
+    
+    private Long userid;
+    
+//	@ManyToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name = "userid", insertable = false, updatable = false)
+//	@Fetch(FetchMode.JOIN)
+//	private Users users;
 
     public Long getId() {
         return this.id;
@@ -59,12 +72,20 @@ public class Posts {
         this.body = body;
     }
 
-    public Date getCreated_at() {
-        return this.created_at;
+    public Date getCreated() {
+        return this.created;
     }
 
-    public void setCreated_at(Date created_at) {
-        this.created_at = created_at;
+    public void setCreated(Date created_at) {
+        this.created = created_at;
     }
+
+	public Long getUserid() {
+		return userid;
+	}
+
+	public void setUserid(Long userid) {
+		this.userid = userid;
+	}
 
 }
