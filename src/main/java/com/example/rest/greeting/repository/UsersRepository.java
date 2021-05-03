@@ -13,7 +13,7 @@ import com.example.rest.greeting.entity.Users;
 @Repository
 public interface UsersRepository extends JpaRepository<Users, Long> {
     
-    @Query(value = "SELECT new com.example.rest.greeting.dto.UserPosts(p.body, p.created, p.slug, p.title, u.name) FROM Users u INNER JOIN U.Posts p"
+    @Query(value = "SELECT new com.example.rest.greeting.dto.UserPosts(p.body, p.created, p.slug, p.title, u.name) FROM Users u JOIN Posts p ON u.id=p.userid"
             , nativeQuery = true)
     List<UserPosts> getAllUserPosts();
 

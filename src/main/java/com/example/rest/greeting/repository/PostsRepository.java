@@ -22,6 +22,6 @@ public interface PostsRepository extends JpaRepository<Posts, Long> {
     void deleteByTitle(String title);
     
 	//SELECT * FROM posts WHERE body LIKE %?%
-    List<Posts> findAllByBodyContains(String body);
+    List<Posts> findAllByBodyContainsIgnoreCase(String body);
 
 }

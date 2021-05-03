@@ -33,7 +33,7 @@ public class PostsService {
 	}
 	
 	public List<Posts> getPostsWithBody(String body) {
-		return postRepository.findAllByBodyContains(body);
+		return postRepository.findAllByBodyContainsIgnoreCase(body);
 	}
 	
 	public Posts getPostByTitle(String title) {
