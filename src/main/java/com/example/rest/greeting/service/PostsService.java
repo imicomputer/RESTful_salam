@@ -50,12 +50,13 @@ public class PostsService {
 		Optional<Posts> postOptional = postRepository.findByTitle(posts.getTitle());
 		
 		if (postOptional.isPresent()) {
-			throw new IllegalStateException("Same Title Available");
+			throw new ResponseStatusException(HttpStatus.CONFLICT, "Same Title Available");
 		}
 		else {
 			//INSERT INTO posts VALUES (posts.slug, post.title, post.body)
 	        postRepository.save(posts);
-	        return postRepository.findBySlug(posts.getSlug()).get();
+	        // return postRepository.findBySlug(posts.getSlug()).get();
+	        throw new ResponseStatusException(HttpStatus.OK, "Post successfully created!");
 		}
 	}
 
@@ -64,7 +65,10 @@ public class PostsService {
 		
 		if (postOptional.isPresent()) {
 			postRepository.save(posts);
-			return postOptional.get();
+			// return postOptional.get();
+			throw new ResponseStatusException(
+				HttpStatus.OK, "Post [id=" + posts.getId() + "] successfully updated!");
+
 		}
 		else {
 			throw new ResponseStatusException(

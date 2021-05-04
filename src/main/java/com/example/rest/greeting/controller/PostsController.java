@@ -46,13 +46,15 @@ public class PostsController {
     }
 
     @PostMapping("/create")
-    public Posts create(@RequestBody final Posts posts){
-    	return postService.createPost(posts);
+    // public Posts create(@RequestBody final Posts posts){
+    public void create(@RequestBody final Posts posts){
+    	// return postService.createPost(posts);
+    	postService.createPost(posts);
     }
 
     @PutMapping("/edit/{id}")
-    public Posts edit(@RequestBody final Posts posts, @PathVariable final Long id){
-    	return postService.editPost(posts, id);
+    public void edit(@RequestBody final Posts posts, @PathVariable final Long id){
+    	postService.editPost(posts, id);
     }
 
     @DeleteMapping("/delete/{id}")
