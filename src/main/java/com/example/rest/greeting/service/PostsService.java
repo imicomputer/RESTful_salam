@@ -92,12 +92,10 @@ public class PostsService {
 			//DELETE FROM posts WHERE id=?
 			postRepository.deleteById(id);
 
-			throw new ResponseStatusException(
-    				HttpStatus.OK, "Post [id=" + id + "] succesfully removed!");
+			throw new ResponseStatusException(HttpStatus.OK, "Post [id=" + id + "] succesfully removed!");
 		}
 		else {
-			throw new ResponseStatusException(
-				HttpStatus.NOT_FOUND, "Post [id=" + id + "] is not found!");
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Post [id=" + id + "] is not found!");
 		}
 	}
 	

@@ -17,6 +17,8 @@ public interface UsersRepository extends JpaRepository<Users, Long> {
             , nativeQuery = true)
     List<UserPosts> getAllUserPosts();
 
-    @Query(value = "SELECT * FROM Users u WHERE u.name=?1", nativeQuery = true)
+    @Query(value = "SELECT * FROM Users u WHERE UPPER(u.name)=UPPER(?1)", nativeQuery = true)
 	Optional<Users> getUserByName(String name);
+
+    Optional<Users> findByEmail(String email);
 }
