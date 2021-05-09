@@ -2,6 +2,8 @@ package com.example.rest.greeting.dto;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
+
 // import javax.persistence.Entity;
 // import javax.persistence.Id;
 
@@ -15,7 +17,11 @@ public class UserPosts {
     private String slug;
     private String title;
     private String body;
+
+	@Column(name = "created_at")
     private Date created;    
+	
+	@Column(name = "name")
     private String username;
 
 	public UserPosts() {

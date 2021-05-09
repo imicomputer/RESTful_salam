@@ -36,7 +36,7 @@ public class UsersController {
     }
 
     @GetMapping("/get_posts")
-    public List<UserPosts> getUserPosts() {
+    public List<Object[]> getUserPosts() {
     	return usersService.getUserPosts();
     }
 

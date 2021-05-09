@@ -7,7 +7,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
-import com.example.rest.greeting.dto.UserPosts;
 import com.example.rest.greeting.entity.Users;
 import com.example.rest.greeting.repository.UsersRepository;
 
@@ -30,7 +29,7 @@ public class UsersService {
 			HttpStatus.NOT_FOUND, "User by email [" + email + "] is not found!"));
     }
 
-	public List<UserPosts> getUserPosts() {
+	public List<Object[]> getUserPosts() {
 		if (!userRepository.getAllUserPosts().isEmpty()) {
 			return userRepository.getAllUserPosts();
 		}
