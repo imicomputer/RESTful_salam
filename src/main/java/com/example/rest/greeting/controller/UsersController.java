@@ -2,7 +2,6 @@ package com.example.rest.greeting.controller;
 
 import java.util.List;
 
-import com.example.rest.greeting.dto.UserPosts;
 import com.example.rest.greeting.entity.Users;
 import com.example.rest.greeting.service.UsersService;
 
@@ -38,6 +37,11 @@ public class UsersController {
     @GetMapping("/get_posts")
     public List<Object[]> getUserPosts() {
     	return usersService.getUserPosts();
+    }
+
+    @GetMapping("/get_posts/{userid}")
+    public List<Object[]> getUserPosts(@PathVariable final int userid) {
+    	return usersService.getUserPosts(userid);
     }
 
 }

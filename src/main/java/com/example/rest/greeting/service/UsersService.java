@@ -37,4 +37,11 @@ public class UsersService {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No User post was found!");
 	}
 
+	public List<Object[]> getUserPosts(int userid) {
+		if (!userRepository.getAllUserPosts(userid).isEmpty()) {
+			return userRepository.getAllUserPosts(userid);
+		}
+		else 
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No User post was found!");
+	}
 }
